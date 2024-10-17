@@ -24,50 +24,54 @@ getBirdTraits()
 </script>
 
 <template>
-  <header :class="{ expand: isHeaderExpanded }">
-    <div class="wrapper">
-      <HeaderContent
-        :isOpen="isHeaderExpanded"
-        @toggle:header="isHeaderExpanded = !isHeaderExpanded"
-      />
-    </div>
-  </header>
-
-  <main class="wrapper">
-    <aside class="side-bar">
-      <HeaderContent
-        :isOpen="isHeaderExpanded"
-        @toggle:header="isHeaderExpanded = !isHeaderExpanded"
-      />
-    </aside>
-    <div class="right-section">
-      <div class="hero-section">
-        <img :src="BirdHero" class="hero-image" />
-        <div class="hero-section-content">
-          <h1>
-            白頭翁
-            <br />
-            (Chinese bulbul)
-          </h1>
-          <p class="subtitle">
-            又名白頭鵯。以果實、昆蟲為主食，無法消化小米、穀類。平均壽命約 8~10
-            年。
-          </p>
-        </div>
-      </div>
-      <div class="trait-wrapper">
-        <BirdTrait
-          v-for="trait in traits"
-          :key="trait.name"
-          :name="trait.name"
-          :content="trait.content"
+  <div class="main-container">
+    <header :class="{ expand: isHeaderExpanded }">
+      <div class="wrapper">
+        <HeaderContent
+          :isOpen="isHeaderExpanded"
+          @toggle:header="isHeaderExpanded = !isHeaderExpanded"
         />
       </div>
-    </div>
-  </main>
+    </header>
+    <main class="wrapper">
+      <aside class="side-bar">
+        <HeaderContent
+          :isOpen="isHeaderExpanded"
+          @toggle:header="isHeaderExpanded = !isHeaderExpanded"
+        />
+      </aside>
+      <div class="right-section">
+        <div class="hero-section">
+          <img :src="BirdHero" class="hero-image" />
+          <div class="hero-section-content">
+            <h1>
+              白頭翁
+              <br />
+              (Chinese bulbul)
+            </h1>
+            <p class="subtitle">
+              又名白頭鵯。以果實、昆蟲為主食，無法消化小米、穀類。平均壽命約
+              8~10 年。
+            </p>
+          </div>
+        </div>
+        <div class="trait-wrapper">
+          <BirdTrait
+            v-for="trait in traits"
+            :key="trait.name"
+            :name="trait.name"
+            :content="trait.content"
+          />
+        </div>
+      </div>
+    </main>
+  </div>
 </template>
 
 <style scoped>
+.main-container {
+  --header-height: 87.74px;
+}
 h1 {
   font-size: 48px;
   font-weight: 700;
@@ -81,11 +85,12 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 87.74px;
+  height: var(--header-height);
   padding-inline: 40px;
 
   &.expand {
-    height: 300px;
+    --header-height: 300px;
+    height: var(--header-height);
   }
 }
 .hero-image {
@@ -119,7 +124,7 @@ header {
   gap: 50.5px;
 }
 .right-section {
-  min-height: calc(100dvh - 87.74px);
+  min-height: calc(100dvh - var(--header-height));
   display: flex;
   flex-direction: column;
   width: 100%;

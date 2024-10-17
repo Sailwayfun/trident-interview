@@ -5,7 +5,7 @@
     </button>
     <nav class="main-nav-heading">
       <h2 class="heading">白頭翁不吃小米</h2>
-      <div class="links" v-if="props.isOpen">
+      <div class="links" :class="{ open: props.isOpen }">
         <a href="#">白頭翁的特性</a>
         <a href="#">白頭翁的故事</a>
         <a href="#">白頭翁的美照</a>
@@ -40,8 +40,14 @@ const toggleHeaderNav = () => emit('toggle:header')
   font-size: 20px;
   font-weight: 700;
 }
-.main-nav-heading,
 .links {
+  display: none;
+}
+.main-nav-heading {
+  gap: 35px;
+}
+.main-nav-heading,
+.links.open {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -61,8 +67,27 @@ const toggleHeaderNav = () => emit('toggle:header')
   border: 1px solid #ccc;
 }
 @media only screen and (min-width: 768px) {
+  .main-nav-heading {
+    gap: 75px;
+  }
   .heading {
     font-size: 30px;
+    padding-top: 5rem;
+  }
+  .hamburger-menu {
+    display: none;
+  }
+  .links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .logo {
+    width: 96px;
+    position: absolute;
+    transform: translateX(-50%);
+    z-index: 5;
+    top: 3rem;
   }
 }
 </style>
