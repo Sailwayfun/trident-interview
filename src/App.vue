@@ -85,6 +85,7 @@ header {
   height: var(--header-height);
   align-items: center;
   padding-inline: 40px;
+  box-shadow: 0px 4px 4px 0px #00000040;
 
   &.expand {
     --header-height: 300px;
