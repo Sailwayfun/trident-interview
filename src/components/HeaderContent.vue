@@ -6,10 +6,13 @@
     <nav class="main-nav-heading">
       <h2 class="heading">白頭翁不吃小米</h2>
       <div class="links" :class="{ open: props.isOpen }">
-        <a href="#" class="active">白頭翁的特性</a>
-        <a href="#">白頭翁的故事</a>
-        <a href="#">白頭翁的美照</a>
-        <a href="#">白頭翁的危機</a>
+        <a
+          v-for="link in linksState"
+          :key="link.name"
+          @click="setActive(link)"
+          :class="{ active: link.active }"
+          >{{ link.name }}</a
+        >
       </div>
     </nav>
     <div>
@@ -33,6 +36,8 @@ const props = defineProps({
 const emit = defineEmits(['toggle:header'])
 
 const toggleHeaderNav = () => emit('toggle:header')
+
+import { linksState, setActive } from '@/store/links'
 </script>
 
 <style scoped>
@@ -65,6 +70,7 @@ const toggleHeaderNav = () => emit('toggle:header')
 }
 a.active {
   color: var(--link-active);
+  border-bottom: 2px solid var(--link-active);
 }
 .hamburger-menu {
   width: 1.5rem;
@@ -142,9 +148,13 @@ a.active {
   .logo {
     width: 96px;
     position: absolute;
-    transform: translateX(-50%);
     z-index: 5;
     top: 3rem;
+    transform: translateX(-50%);
+
+    &.open {
+      transform: translateX(-50%);
+    }
   }
   .bird {
     position: relative;
