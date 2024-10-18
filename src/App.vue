@@ -158,7 +158,7 @@ header {
   .side-bar {
     display: flex;
     text-align: center;
-    width: 345px;
+    min-width: 345px;
   }
   .heading {
     font-size: 30px;
