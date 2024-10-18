@@ -8,6 +8,7 @@
 :root {
   --bg-primary: #dcccbc;
   --link-active: #aa6666;
+  --bg-donut: #aa666699;
 }
 
 a:visited,

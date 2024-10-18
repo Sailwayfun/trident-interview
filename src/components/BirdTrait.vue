@@ -1,6 +1,9 @@
 <template>
   <div class="trait-section">
-    <h3 class="trait-name">{{ props.name }}</h3>
+    <h3 class="trait-name">
+      <span class="donut"></span>
+      {{ props.name }}
+    </h3>
     <p class="trait-content">
       {{ props.content }}
     </p>
@@ -23,6 +26,29 @@ const props = defineProps({
   font-size: 36px;
   font-weight: 700;
   writing-mode: vertical-lr;
+  position: relative;
+  flex-grow: 0;
+}
+.donut {
+  border-radius: 50%;
+  background-color: var(--bg-donut);
+  width: 25px;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  position: absolute;
+  top: 52px;
+  right: -10px;
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(-50%, -50%);
+    background-color: var(--bg-primary);
+    width: 50%;
+    height: 50%;
+    border-radius: 50%;
+  }
 }
 
 @media only screen and (min-width: 1280px) {
@@ -32,6 +58,28 @@ const props = defineProps({
   }
   .trait-content {
     max-height: 200px;
+  }
+  .donut {
+    border-radius: 50%;
+    background-color: var(--bg-donut);
+    width: 25px;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    position: absolute;
+    top: 52px;
+    right: -10px;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translate(-50%, -50%);
+      background-color: var(--bg-primary);
+      width: 50%;
+      height: 50%;
+      border-radius: 50%;
+    }
   }
 }
 </style>
