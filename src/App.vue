@@ -26,12 +26,10 @@ getBirdTraits()
 <template>
   <div class="main-container">
     <header :class="{ expand: isHeaderExpanded }">
-      <div class="wrapper">
-        <HeaderContent
-          :isOpen="isHeaderExpanded"
-          @toggle:header="isHeaderExpanded = !isHeaderExpanded"
-        />
-      </div>
+      <HeaderContent
+        :isOpen="isHeaderExpanded"
+        @toggle:header="isHeaderExpanded = !isHeaderExpanded"
+      />
     </header>
     <main class="wrapper">
       <aside class="side-bar">
@@ -96,11 +94,13 @@ header {
 .hero-image {
   display: block;
   width: 100%;
-  height: 311.4px;
+  height: 100%;
   object-fit: cover;
 }
 .hero-section {
   position: relative;
+  max-height: 311.4px;
+  overflow: hidden;
   width: 100%;
   color: #fff;
   flex: 1;
@@ -122,6 +122,9 @@ header {
   display: flex;
   flex-direction: column;
   gap: 50.5px;
+  padding-top: 51px;
+  padding-inline: 36px;
+  padding-bottom: 71px;
 }
 .right-section {
   min-height: calc(100dvh - var(--header-height));
@@ -149,15 +152,17 @@ header {
     font-size: 30px;
   }
   .trait-wrapper {
-    flex: 1;
+    flex-grow: 1;
     flex-direction: row;
     gap: 79px;
+    padding-inline: 50px;
+    padding-top: 58px;
+    padding-bottom: 84px;
   }
   .right-section {
     min-height: 100dvh;
   }
-  .hero-image {
-    height: 64vh;
+  .hero-section {
     max-height: 634px;
   }
 }

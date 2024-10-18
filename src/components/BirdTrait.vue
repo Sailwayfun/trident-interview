@@ -26,5 +26,12 @@ const props = defineProps({
 }
 
 @media only screen and (min-width: 768px) {
+  .trait-section {
+    min-height: 0px;
+    max-height: 225px;
+  }
+  .trait-content {
+    max-height: 200px;
+  }
 }
 </style>

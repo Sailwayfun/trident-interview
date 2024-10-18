@@ -34,6 +34,7 @@ const toggleHeaderNav = () => emit('toggle:header')
 .header-content {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
 }
 .heading {
@@ -67,6 +68,9 @@ const toggleHeaderNav = () => emit('toggle:header')
   border: 1px solid #ccc;
 }
 @media only screen and (min-width: 768px) {
+  .header-content {
+    align-items: flex-start;
+  }
   .main-nav-heading {
     gap: 75px;
   }
