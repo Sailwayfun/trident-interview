@@ -5,6 +5,7 @@ import { ref } from 'vue'
 
 import BirdTrait from './components/BirdTrait.vue'
 import HeaderContent from './components/HeaderContent.vue'
+import MainSidebar from './components/MainSidebar.vue'
 
 type BirdTraitType = {
   name: string
@@ -32,12 +33,7 @@ getBirdTraits()
       />
     </header>
     <main class="wrapper">
-      <aside class="side-bar">
-        <HeaderContent
-          :isOpen="isHeaderExpanded"
-          @toggle:header="isHeaderExpanded = !isHeaderExpanded"
-        />
-      </aside>
+      <MainSidebar :isHeaderExpanded />
       <div class="right-section">
         <div class="hero-section">
           <img :src="BirdHero" class="hero-image" />
@@ -125,9 +121,6 @@ header {
   justify-content: flex-end;
   align-items: flex-end;
 }
-.side-bar {
-  display: none;
-}
 .trait-wrapper {
   background-color: var(--bg-primary);
   display: flex;
@@ -163,11 +156,6 @@ header {
   }
   .wrapper {
     display: flex;
-  }
-  .side-bar {
-    display: flex;
-    text-align: center;
-    min-width: 345px;
   }
   .heading {
     font-size: 30px;
