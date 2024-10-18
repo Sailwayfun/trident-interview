@@ -71,7 +71,7 @@ const toggleHeaderNav = () => emit('toggle:header')
   background-color: #fff;
   border: 1px solid #ccc;
 }
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 1280px) {
   .header-content {
     align-items: flex-start;
   }

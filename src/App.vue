@@ -139,6 +139,16 @@ header {
 }
 
 @media only screen and (min-width: 768px) {
+  .trait-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .hero-section {
+    max-height: 400px;
+  }
+}
+
+@media only screen and (min-width: 1280px) {
   header {
     display: none;
   }
@@ -154,6 +164,7 @@ header {
     font-size: 30px;
   }
   .trait-wrapper {
+    display: flex;
     flex-grow: 1;
     flex-direction: row;
     gap: 79px;
@@ -166,6 +177,7 @@ header {
   }
   .hero-section {
     max-height: 634px;
+    overflow: visible;
   }
 }
 </style>

@@ -25,7 +25,7 @@ const props = defineProps({
   writing-mode: vertical-lr;
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 1280px) {
   .trait-section {
     min-height: 0px;
     max-height: 225px;
