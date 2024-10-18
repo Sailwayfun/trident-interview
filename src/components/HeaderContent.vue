@@ -1,5 +1,5 @@
 <template>
-  <div class="header-content">
+  <div class="header-content" :class="{ 'align-start': isOpen }">
     <button type="button" class="hamburger-menu" @click="toggleHeaderNav">
       <img :src="isOpen ? hamburgerClose : hamburgerMenu" />
     </button>
@@ -36,6 +36,10 @@ const toggleHeaderNav = () => emit('toggle:header')
   justify-content: space-between;
   align-items: center;
   width: 100%;
+
+  &.align-start {
+    align-items: start;
+  }
 }
 .heading {
   font-size: 20px;

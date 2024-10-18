@@ -82,12 +82,14 @@ h1 {
 header {
   display: flex;
   justify-content: center;
-  align-items: center;
   height: var(--header-height);
+  align-items: center;
   padding-inline: 40px;
 
   &.expand {
     --header-height: 300px;
+    padding-top: 30px;
+    align-items: flex-start;
     height: var(--header-height);
   }
 }
