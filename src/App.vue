@@ -32,7 +32,7 @@ const onToggleHeader = () => {
   <div class="main-container">
     <MainHeader :isHeaderExpanded @toggle-header="onToggleHeader" />
     <main class="wrapper">
-      <MainSidebar :isHeaderExpanded />
+      <MainSidebar />
       <div class="right-section">
         <div class="hero-section">
           <img :src="BirdHero" class="hero-image" />

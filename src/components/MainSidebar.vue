@@ -1,15 +1,11 @@
 <template>
   <aside class="side-bar">
-    <HeaderContent :isOpen="props.isHeaderExpanded" />
+    <HeaderContent />
   </aside>
 </template>
 
 <script setup lang="ts">
 import HeaderContent from './HeaderContent.vue'
-
-const props = defineProps({
-  isHeaderExpanded: Boolean,
-})
 </script>
 
 <style scoped>

@@ -1,11 +1,11 @@
 <template>
-  <div class="header-content" :class="{ 'align-start': isOpen }">
+  <div class="header-content" :class="{ 'align-start': props?.isOpen }">
     <button type="button" class="hamburger-menu" @click="toggleHeaderNav">
-      <img :src="isOpen ? hamburgerClose : hamburgerMenu" />
+      <img :src="props?.isOpen ? hamburgerClose : hamburgerMenu" />
     </button>
     <nav class="main-nav-heading">
       <h2 class="heading">白頭翁不吃小米</h2>
-      <div class="links" :class="{ open: props.isOpen }">
+      <div class="links" :class="{ open: props?.isOpen }">
         <a
           v-for="link in linksState"
           :key="link.name"
@@ -16,7 +16,7 @@
       </div>
     </nav>
     <div>
-      <div class="logo" :class="{ open: isOpen }">
+      <div class="logo" :class="{ open: props?.isOpen }">
         <div class="bird">
           <div class="eye"></div>
           <div class="beak"></div>
@@ -31,7 +31,10 @@ import hamburgerClose from '@/assets/hamburgur-close.png'
 import hamburgerMenu from '@/assets/hamburgur-menu.png'
 
 const props = defineProps({
-  isOpen: Boolean,
+  isOpen: {
+    type: Boolean,
+    default: false,
+  },
 })
 const emit = defineEmits(['toggle:header'])
 
