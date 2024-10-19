@@ -4,7 +4,6 @@ import BirdHero from '@/assets/bird-hero.png'
 import { ref } from 'vue'
 
 import BirdTrait from './components/BirdTrait.vue'
-import HeaderContent from './components/HeaderContent.vue'
 import MainSidebar from './components/MainSidebar.vue'
 import MainHeader from './components/MainHeader.vue'
 
