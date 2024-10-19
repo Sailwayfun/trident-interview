@@ -62,7 +62,7 @@ h1 {
 }
 .hero-section {
   position: relative;
-  max-height: 311.4px;
+  max-height: calc(311.4px + var(--header-height));
   overflow: hidden;
   width: 100%;
   color: #fff;
@@ -89,7 +89,7 @@ h1 {
 
 @media only screen and (min-width: 768px) {
   .hero-section {
-    max-height: 400px;
+    max-height: 500px;
   }
 }
 
