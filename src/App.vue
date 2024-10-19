@@ -1,27 +1,13 @@
 <script setup lang="ts">
-import BirdHero from '@/assets/bird-hero.png'
+import birdHero from '@/assets/bird-hero.png'
 
 import { ref } from 'vue'
 
-import BirdTrait from './components/BirdTrait.vue'
 import MainSidebar from './components/MainSidebar.vue'
 import MainHeader from './components/MainHeader.vue'
+import BirdTraitList from './components/BirdTraitList.vue'
 
-type BirdTraitType = {
-  name: string
-  content: string
-}
-
-const traits = ref<Array<BirdTraitType>>([])
 const isHeaderExpanded = ref(false)
-
-const getBirdTraits = async () => {
-  const response = await fetch('traits.json')
-  const traitsData: { traits: Array<BirdTraitType> } = await response.json()
-  traits.value = traitsData.traits
-}
-
-getBirdTraits()
 
 const onToggleHeader = () => {
   isHeaderExpanded.value = !isHeaderExpanded.value
@@ -35,7 +21,7 @@ const onToggleHeader = () => {
       <MainSidebar />
       <div class="right-section">
         <div class="hero-section">
-          <img :src="BirdHero" class="hero-image" />
+          <img :src="birdHero" class="hero-image" />
           <div class="hero-section-content">
             <h1>
               白頭翁
@@ -48,14 +34,7 @@ const onToggleHeader = () => {
             </p>
           </div>
         </div>
-        <div class="trait-wrapper">
-          <BirdTrait
-            v-for="trait in traits"
-            :key="trait.name"
-            :name="trait.name"
-            :content="trait.content"
-          />
-        </div>
+        <BirdTraitList />
       </div>
     </main>
   </div>
@@ -98,15 +77,6 @@ h1 {
   justify-content: flex-end;
   align-items: flex-end;
 }
-.trait-wrapper {
-  background-color: var(--bg-primary);
-  display: flex;
-  flex-direction: column;
-  gap: 50.5px;
-  padding-top: 51px;
-  padding-inline: 36px;
-  padding-bottom: 71px;
-}
 .right-section {
   min-height: calc(100dvh - var(--header-height));
   display: flex;
@@ -118,10 +88,6 @@ h1 {
 }
 
 @media only screen and (min-width: 768px) {
-  .trait-wrapper {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-  }
   .hero-section {
     max-height: 400px;
   }
@@ -133,15 +99,6 @@ h1 {
   }
   .heading {
     font-size: 30px;
-  }
-  .trait-wrapper {
-    display: flex;
-    flex-grow: 1;
-    flex-direction: row;
-    gap: 79px;
-    padding-inline: 50px;
-    padding-top: 58px;
-    padding-bottom: 84px;
   }
   .right-section {
     min-height: 100dvh;
